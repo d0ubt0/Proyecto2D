@@ -7,14 +7,15 @@ public class PlayerDeath : MonoBehaviour
 {
     public Animator anim;
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Death"))
         {
             anim.SetBool("Death",true);
             Invoke("SetActive",0.5f);
             Invoke("SceneChange",1.5f);
-        }    
+        }   
+        
     }
 
     void SetActive()
