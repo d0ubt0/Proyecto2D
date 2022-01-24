@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     //IsWalled
     private bool isWalledL;
     private bool isWalledR;
+    private bool isSliding;
     //Jump
     public float forceJump;
     public float jumpTime;
@@ -50,11 +51,15 @@ public class PlayerMove : MonoBehaviour
 
         BasicAnimations();
 
+
+
     }
 
     private void FixedUpdate() 
     {
         Movement();
+
+        WallSlide();
         
     }
 
@@ -67,7 +72,14 @@ public class PlayerMove : MonoBehaviour
     void PlayerMoveInputs()
     {
         xInputPlayer = Input.GetAxis("Horizontal");
-
+        if(isWalledL && xInputPlayer<0)
+        {
+            xInputPlayer = 0;
+        }
+        if(isWalledR && xInputPlayer>0)
+        {
+            xInputPlayer = 0;
+        }
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             isRunning = true;
@@ -172,6 +184,27 @@ public class PlayerMove : MonoBehaviour
         else 
         {
             rb.velocity = new Vector2(Mathf.Clamp(movementVector.x+rb.velocity.x,-1f*actualSpeed,actualSpeed),rb.velocity.y);
+        }
+    }
+
+    void WallSlide()
+    {
+
+        if(!isGrounded && isWalledL && !isJumping)
+        {
+            isSliding = true;
+        }
+        else if(!isGrounded && isWalledR && !isJumping)
+        {
+            isSliding = true;
+        }
+        else
+        {
+            isSliding = false;
+        }
+        if(isSliding)
+        {
+            rb.velocity = new Vector2(rb.velocity.x,Mathf.Clamp(rb.velocity.y-0.05f,-0.25f,rb.velocity.y));
         }
     }
 
