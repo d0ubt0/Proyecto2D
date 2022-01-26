@@ -5,17 +5,23 @@ using UnityEngine;
 public class SpikeHead : MonoBehaviour
 {
     public Transform spikeTransform;
-    public Transform playerTransform;
-    public Animator anim;   
+    private Transform playerTransform;
+    public Animator anim;
+
     
     void Start()
     {       
-        
+
     }
 
     void Update()
     {
+        if(playerTransform == null)
+        {
+            playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        }
         PlayerNear();
+       swws
     }
 
     void PlayerNear()

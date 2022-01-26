@@ -8,6 +8,7 @@ public class FallingPlatform : MonoBehaviour
     public BoxCollider2D boxCollider2D;
     public Animator animator;
     
+    
     void Start()
     {
         Rigidbody2D.gravityScale = 0;
@@ -21,6 +22,7 @@ public class FallingPlatform : MonoBehaviour
         {
             Invoke("Off",0.4f);
             Invoke("Destroy",5f);
+
         }
     }
 
