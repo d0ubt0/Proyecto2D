@@ -21,7 +21,6 @@ public class SpikeHead : MonoBehaviour
             playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         }
         PlayerNear();
-       swws
     }
 
     void PlayerNear()
