@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Death
   - Floor
+  - Apple
+  - Banana
+  - Cherries
+  - Melon
   layers:
   - Default
   - TransparentFX
