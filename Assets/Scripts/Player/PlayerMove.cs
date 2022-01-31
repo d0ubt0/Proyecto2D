@@ -204,7 +204,7 @@ public class PlayerMove : MonoBehaviour
         }
         if(isSliding)
         {
-            rb.velocity = new Vector2(rb.velocity.x,Mathf.Clamp(rb.velocity.y-0.05f,-0.25f,rb.velocity.y));
+            rb.velocity = new Vector2(rb.velocity.x,Mathf.Clamp(rb.velocity.y-0.05f,-0.7f,rb.velocity.y));
         }
     }
 
