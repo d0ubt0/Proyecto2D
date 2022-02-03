@@ -1,4 +1,4 @@
-# Proyecto2D
+# Proyecto2D (Super Meat Boy)
  Este es el repositorio de nuestro grupo, el tipo de juego que escogimos fue uno estilo de plataformas estilo Super Meat Boy.
  
  Version de Unity utilizada:
