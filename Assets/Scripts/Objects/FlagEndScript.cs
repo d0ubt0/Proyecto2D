@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class FlagEndScript : MonoBehaviour
 {
-   public Animator anim;
+    public Animator anim;
+    [SerializeField]
+    private AudioSource winSoundEffect;
+
+    private bool levelCompleted = false;
+    
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && levelCompleted == false)
         {
+            levelCompleted = true;
+            winSoundEffect.Play();
             anim.SetBool("PlayerCollision",true);
             Invoke("ChangeScene",2);
         }

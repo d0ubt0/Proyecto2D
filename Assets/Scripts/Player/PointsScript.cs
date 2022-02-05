@@ -6,6 +6,8 @@ public class PointsScript : MonoBehaviour
 {
     private UIScript points;
     private SpriteRenderer spriteApple;
+    [SerializeField]
+    private AudioSource coinSoundEffect;
 
     private void Update()
     {
@@ -17,7 +19,7 @@ public class PointsScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.CompareTag("Apple"))
         {
             Collected(collision);
@@ -46,6 +48,7 @@ public class PointsScript : MonoBehaviour
     }
     void Collected(Collider2D collision)
     {
+        coinSoundEffect.Play();
         spriteApple = collision.gameObject.GetComponent<SpriteRenderer>();
         spriteApple.enabled = false;
         collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
