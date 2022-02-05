@@ -29,7 +29,8 @@ public class PlayerMove : MonoBehaviour
     //Animator
     public Animator anim;
     public SpriteRenderer spriteRenderer;
-    
+    [SerializeField]
+    private AudioSource jumpSoundEffect;
 
 
     void Start()
@@ -137,6 +138,8 @@ public class PlayerMove : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            jumpSoundEffect.Play();
+            
             if(isGrounded)
             {
                 isJumping = true;
